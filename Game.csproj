@@ -104,9 +104,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\thumb-1920-394469.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\resourcesnew\background\bg.png" />
   </ItemGroup>
   <ItemGroup>

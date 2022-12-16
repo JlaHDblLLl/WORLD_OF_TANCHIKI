@@ -31,18 +31,16 @@ namespace Game
         BricksBuilder br_build;
         User User;
         Random Random = new Random();
-        //Label player_health_lbl;
-        //Label opponent_health_lbl;
         Label turn_lbl;
         Fire playerFire;
         Fire opponentFire;
         Brush black_brush;
         Brush green_brush;
         Pen healthBar_pen = new Pen(Color.Black, 3);
-        int Player_R;// = (int)(255 *(1- player_health_percent));
-        int Player_G;//= (int)(255* (player_health_percent));
-        int Opponent_R;//= (int)(255 * (1 - opp_health_percent));
-        int Opponent_G;//= (int)(255 * (opp_health_percent));
+        int Player_R;
+        int Player_G;
+        int Opponent_R;
+        int Opponent_G;
         double latency = 50;
         Mode mode;
         public bool isGameEnd { get; set; }
