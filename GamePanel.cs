@@ -76,9 +76,7 @@ namespace Game
             gameTimer.Start();
             br_build = new BricksBuilder(this, 2);
             black_brush = new SolidBrush(Color.FromArgb(240, 10, 10, 10));
-            //black_brush = Brushes.Black;
             green_brush = new SolidBrush(Color.FromArgb(255, 0, 230, 10));
-            //green_brush = Brushes.Green;
             healthBar_pen = new Pen(Color.Black, 2.3f);
             turn_lbl = new Label()
             {
@@ -91,28 +89,15 @@ namespace Game
             turn_lbl.SizeChanged += Turn_lbl_SizeChanged;
             turn_lbl.Location = new Point(this.Width / 2 - turn_lbl.Width / 2, 30);
             this.Controls.Add(turn_lbl);
-            if (User == User.Host)
-            {
-                player = new Player(50, br_build.Beginnig_Y, this, PlayerType.MyPlayer);
-                player.Start_Turn();
-                opponent = new Player(this.Width - player.Width - 50, br_build.Beginnig_Y, this, PlayerType.Opponent);
-                playerTurn = true;
+            player = new Player(50, br_build.Beginnig_Y, this, PlayerType.MyPlayer);
+            player.Start_Turn();
+            opponent = new Player(this.Width - player.Width - 50, br_build.Beginnig_Y, this, PlayerType.Opponent);
+            playerTurn = true;
 
-                opponentFire = opponent.getShootedFire();
-                playerFire = player.getShootedFire();
-                Player_Health = player.Health;
-                Opponent_Health = opponent.Health;
-            }
-
-            else if (User == User.Client)
-            {
-                opponent = new Player(50, br_build.Beginnig_Y, this, PlayerType.Opponent);
-                player = new Player(this.Width - opponent.Width - 50, br_build.Beginnig_Y, this, PlayerType.MyPlayer);
-                opponent.Start_Turn();
-
-                opponentFire = opponent.getShootedFire();
-                playerFire = player.getShootedFire();
-            }
+            opponentFire = opponent.getShootedFire();
+            playerFire = player.getShootedFire();
+            Player_Health = player.Health;
+            Opponent_Health = opponent.Health;
         }
 
         private void Turn_lbl_SizeChanged(object sender, EventArgs e)
@@ -227,14 +212,9 @@ namespace Game
                     opponentTurn = false;
                 }
 
-                //opponent_health_lbl.Text = ("Opponent Health: " + opponent.Health);
-                //player_health_lbl.Text = ("Player Health: " + player.Health);
-
-                //updating the fire of every player
                 opponentFire = opponent.getShootedFire();
                 playerFire = player.getShootedFire();
 
-                //Check collisions of fire with tanks to lower health
                 if (playerFire != null && latency >= 50 && playerFire.explosion != null)
                 {
                     if (GameObject.checkCollision(opponent, playerFire.explosion))
