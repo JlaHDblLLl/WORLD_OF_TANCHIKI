@@ -75,7 +75,7 @@ namespace Game
             if (angle > 0 && angle < 180 && power.getPower_Val() > 10)
             {
                 if (angle < 90)
-                {//Physics.Range return the last x in the range of path equation
+                {
                     float range = (float)Physics.Range(angle, power.getSpeedMagnitude() * range_percent, player) - (float)(player.X + player.Width / 2.0);
                     float actual_len;
                     float ratio;

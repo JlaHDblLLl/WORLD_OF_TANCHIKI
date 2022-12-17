@@ -17,24 +17,23 @@ namespace Game.GameObjects
     }
     class Player : GameObject
     {
-        private static int moves = 5;  //each tank starts a new game with 5 available moves 
-        private Image Player_Image;// = Image.FromFile(@"resourcesnew\tank1\tank1.png");
-        public  float Width_Player;// = Player_Image.Width;
-        public  float Height_Player;// = Player_Image.Height;
+        private static int moves = 5;  
+        private Image Player_Image;
+        public  float Width_Player;
+        public  float Height_Player;
         public GamePanel gp;
-        //Label lbl = new Label();
         Pen pen;
         Pen dashed_pen;
         PlayerType PlayerType;
 
 
         private Fire fire;
-        public int angle = 60; //angle of the shooted fire
-        public Power power;//power of shooted fire
-        protected bool turn = false;//the turn of this player to decide wether to shoot or not
+        public int angle = 60;
+        public Power power;
+        protected bool turn = false;
         public bool fired = false;
         public bool isPowerAngle_Recieved;
-        int turns_count = 1;//used to change the fire type every turn
+        int turns_count = 1;
         public int Health { get; set; }
         List<PointF> path_pts;
         float ground_Y;
@@ -218,7 +217,7 @@ namespace Game.GameObjects
             if (fire != null && fired)
             {
                 fire.Draw(g);
-            }// Draw Fire 
+            }
         }
         public override void Draw(Graphics g)
         {

@@ -21,7 +21,6 @@ namespace Game.GameObjects
         public bool IsCollided { get; set; }
         public bool isFinished = false;
         public Explosion explosion { get; set; }
-        //SoundPlayer exp;
         
         
         public double Fire_Radius { get; }
